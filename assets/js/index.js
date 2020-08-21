@@ -41,11 +41,13 @@ function getUserInfo() {
         //1.用户名判断（昵称优先。没有用username）
         var name = user.nickname || user.username
         $('#welcome').html('欢迎&nbsp&nbsp' + name)
+            // console.log(user.user_pic)
+
         //2.判断图片路径是否为空
         if (user.user_pic !== null) {
             // 有头像
             //如果上传了头像就改变改变头像路径
-            $('.layui-nav-img').attr('url', user.user_pic).show()
+            $('.layui-nav-img').attr('src', user.user_pic).show()
             $('.user-avatar').hide()
         }else{
             //美有头像
