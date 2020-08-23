@@ -19,6 +19,9 @@ $(function () {
     $("#file").on('change', function (e) {
         //3.1拿到用户选择的文件
         var file = e.target.files[0]
+        if (file.length == 0) {
+            return
+        }
         var newImageUrl = URL.createObjectURL(file)
         $image
             .cropper('destroy') //销毁旧的裁剪区
@@ -27,7 +30,6 @@ $(function () {
     })
     //4.上传头像、
     $("#btnUpload").on("click", function () {
-        // 复制黏贴的狗东西
         var dataURL = $image
             .cropper('getCroppedCanvas', {
                 // 创建一个 Canvas 画布
